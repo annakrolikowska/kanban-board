@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const StyledKanban= styled.section`
     background-color: #E9E7F2;
     min-width: 980px;
+    height: 820px;
     padding: 60px 120px;
     margin: 60px;
     border-radius: 20px;

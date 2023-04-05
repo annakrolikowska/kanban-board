@@ -5,15 +5,16 @@ const StyledSelect= styled.select`
     min-width: 195px;
     height: 36px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
     background: white;
     border-radius: 16px;
     border: none;
-    font-size: 16px;
+    text-align: center;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    background: url("https://cdn-icons-png.flaticon.com/512/9068/9068059.png") 20px center / 16px no-repeat white;
 
     &:focus-visible {
         outline: 1px solid #7B54CE;
-    }
+    } 
 `
 export { StyledSelect};

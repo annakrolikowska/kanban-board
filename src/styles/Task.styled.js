@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 const StyledTask = styled.div`
     width: 200px;
@@ -15,6 +15,10 @@ const StyledTask = styled.div`
 
     & h2 {
         font-size: 12px;
+    }
+
+    & .task-container { 
+        display: flex;
     }
 
     & .task-details { 
@@ -43,7 +47,7 @@ const StyledTask = styled.div`
             height: 25px;
             width: 25px;
             margin-right: 6px;;
-        }
+        }  
     }
 `
 export { StyledTask };

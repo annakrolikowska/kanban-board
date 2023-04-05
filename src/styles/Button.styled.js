@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const StyledButton= styled.button`
     padding: 8px 20px;
@@ -26,5 +26,27 @@ const StyledButton= styled.button`
     &:focus-visible {
         outline: 2px solid black;
     }
+
+    ${ props => props.type === 'submit' && css`
+        min-width: 100%;
+        height: 36px;
+        font-weight: 400;
+        margin-top: 120px;
+    }`}
+
+    ${ props => props.type === 'close' && css`
+        background: none;
+        min-width: 10px;
+        margin-left: 280px;
+
+        &:hover {
+            background: none;
+        }
+
+        & img {
+            background: none;
+            width: 20px;       
+        }
+    }`}
 `
 export { StyledButton};

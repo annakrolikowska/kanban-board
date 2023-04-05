@@ -17,13 +17,11 @@ const StyledHeader= styled.header`
         }
     }
 
-    & div {
+    & .header-container {
         display: flex;
         justify-content: space-between;
         gap: 2%;
         margin-right: 15px;
-
     }
-
 `
 export { StyledHeader};
