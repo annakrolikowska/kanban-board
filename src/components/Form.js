@@ -4,6 +4,7 @@ import Button from './Button';
 import ClosedButton from './ClosedButton';
 import { connect } from 'react-redux';
 import { addTaskAction } from '../actions/kanban';
+import teamMembers from '../teamMembers.js';
 
 class Form extends React.Component {
     
@@ -12,6 +13,7 @@ class Form extends React.Component {
         description: '',
         priority: '',
         member: '',
+        avatar: '',
         errors: [],
     }
 
@@ -40,12 +42,11 @@ class Form extends React.Component {
                     <option value="">
                         Select team member
                     </option>
-                    <option value="Ksenia Storm">Ksenia Storm</option>
-                    <option value="Pawel Waters">Pablo Waters</option>
-                    <option value="Annie Bunny">Annie Bunny</option>
-                    <option value="Ewa Flowers">Ewa Flowers</option>
-                    <option value="John Snow">John Snow</option>
-                    <option value="Justine Rivers">Justine Rivers</option>
+                    {teamMembers.map((teamMember) => (
+                        <option key={teamMember.name} value={teamMember.name} avatar={teamMember.avatar} >
+                        {teamMember.name}
+                        </option>
+                     ))} 
                 </select>
             </label>
             <label>
@@ -71,15 +72,18 @@ class Form extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-
+      
         const isFormValid = this.validateForm();
-
+      
         if (isFormValid) {
+            const { title, description, priority, member } = this.state;
+            const selectedMember = teamMembers.find(teamMember => teamMember.name === member);
+            const avatar = selectedMember.avatar;
+            console.log(selectedMember.avatar)
 
-        const { title, description, priority, member } = this.state;
-        const task = { title, description, priority, member };
-        task.columnId=1;
-        this.props.addTask(task)
+            const task = { title, description, priority, member, avatar};
+            task.columnId = 1;
+            this.props.addTask(task);
         }
     }
 
@@ -89,16 +93,12 @@ class Form extends React.Component {
         });
     }
 
-
     validateForm = () => {
         const { title, description, priority, member } = this.state;
         const errors = [];
     
         if (title.trim() === '') {
         errors.push('Title is required');
-        }
-        if (description.trim() === '') {
-            errors.push('Title is required');
         }
         if (description.trim().length > 100) {
         errors.push('Description maximum 100 characters in length');
@@ -113,9 +113,10 @@ class Form extends React.Component {
         this.setState({ errors });
     
         return errors.length === 0;
-  };
+    };
 
 }
+
 const mapStateToProps = (state) => {
     return {
         tasks: state.tasks, 

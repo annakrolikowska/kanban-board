@@ -16,7 +16,7 @@ class Task extends Component {
     }
 
     render() {
-        const { id, title, priority, member, size, theme, description, onChange } = this.props;
+        const { id, title, priority, member, avatar, size, theme, description, onChange } = this.props;
 
         return (
             <div draggable onDragStart={e => this.handleDragStart(e, id)}>
@@ -30,7 +30,7 @@ class Task extends Component {
                         <p>{description}</p>
                     </div>
                     <div className="task-member">
-                        <img src="https://i.ibb.co/FDpxMKH/avvatar.png" alt="member" />
+                        <img src={avatar} alt="member" />
                         <h2>{member}</h2>
                     </div>
                 </StyledTask>

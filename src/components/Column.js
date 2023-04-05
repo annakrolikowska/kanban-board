@@ -27,7 +27,7 @@ class Column extends React.Component {
           <p>Tasks limit: {limit}</p>
         </header>
         {this.props.tasks.filter(task => task.columnId === id).map(task => 
-          <Task id={task.id} title={task.title} description={task.description} member={task.member} priority={task.priority}/> )}
+          <Task id={task.id} title={task.title} description={task.description} member={task.member} avatar={task.avatar} priority={task.priority}/> )}
       </StyledColumn>
     );
   }
