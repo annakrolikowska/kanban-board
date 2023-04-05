@@ -7,9 +7,11 @@ const StyledForm = styled.form`
     border-radius: 20px;
     background: #F8F7F7;
     padding: 45px 25px;
+    font-size: 13px;
     position: absolute;
     top: 60px;
     right: 15%;
+
 
     & div {
         margin-bottom: 80px;
@@ -20,11 +22,11 @@ const StyledForm = styled.form`
         min-height: 34px;
         border-radius: 16px;
         border: 1px solid #B5B5B5;
-        padding-left: 5px;
+        padding: 4px 15px;
         box-sizing: border-box;
         margin: 4px 0 16px;
         font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
+  
 
         &:focus-visible {
         outline: 1px solid #7B54CE;
@@ -39,8 +41,24 @@ const StyledForm = styled.form`
         min-height: 88px;
     }
 
+    & label {
+        font-weight: 500;
+    }
+
+    
     & select:invalid {
             color: red;
+    }
+
+    & .error-message {
+        color: red;
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: 110px;
+    }
+
+    & .error {
+       border: 1px solid red;
     }
 `
 
