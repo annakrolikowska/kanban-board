@@ -6,7 +6,7 @@ const Priority = props => {
     const {priority} = props;
     return (
         <StyledPriority priority={priority}>
-          <h3>High priority</h3>
+          <h3>{priority} priority</h3>
         </StyledPriority>
     );
 }

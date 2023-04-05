@@ -1,23 +1,52 @@
-
-import React from 'react';
+import React, { Component } from 'react';
 import { StyledTask } from '../styles/Task.styled';
-import Priority from './Priority';
+import { deleteTaskAction } from '../actions/kanban';
+import { connect } from 'react-redux';
 
-const Task = props => {
-    const {priority, member, size, theme, description, onChange} = props;
-    return (
-        <StyledTask priority={priority} member={member} description={description} size={size} theme={theme} onChange={onChange}>
-            <Priority/>
-            <div className="task-details">
-                <h2>New tasks</h2>
-                <p>It is a long established fact that a reader will be distracted by the readable.</p>
+import Priority from './Priority';
+import ClosedButton from './ClosedButton';
+
+class Task extends Component {
+    handleDragStart = (event,id) => {
+        event.dataTransfer.setData("taskId", id);
+    }
+
+    handleDeleteTask = (id) => {
+            this.props.deleteTask(id);
+    }
+
+    render() {
+        const { id, title, priority, member, size, theme, description, onChange } = this.props;
+
+        return (
+            <div draggable onDragStart={e => this.handleDragStart(e, id)}>
+                <StyledTask priority={priority} size={size} theme={theme} onChange={onChange}>
+                    <div className="task-container">
+                        <Priority priority={priority} />
+                        <ClosedButton size='small' onClick={() => this.handleDeleteTask(id)}  />
+                    </div>
+                    <div className="task-details">
+                        <h2>{title}</h2>
+                        <p>{description}</p>
+                    </div>
+                    <div className="task-member">
+                        <img src="https://i.ibb.co/FDpxMKH/avvatar.png" alt="member" />
+                        <h2>{member}</h2>
+                    </div>
+                </StyledTask>
             </div>
-            <div className="task-member">
-                <img src="https://i.ibb.co/FDpxMKH/avvatar.png" alt="member"/>
-                <h2>Team Member</h2>
-            </div>
-        </StyledTask>
-    );
+        );
+    }
 }
 
-export default Task;
+const mapStateToProps = (state) => {
+    return {
+        tasks: state.tasks,  
+    }
+}
+
+const mapActionToProps = {
+    deleteTask: deleteTaskAction,
+ }
+
+ export default connect(mapStateToProps, mapActionToProps)(Task)
