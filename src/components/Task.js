@@ -16,7 +16,7 @@ class Task extends Component {
     }
 
     render() {
-        const { id, title, priority, member, avatar, size, theme, description, onChange } = this.props;
+        const { id, title, priority, member, avatar, size, theme, description, onChange} = this.props;
 
         return (
             <div draggable onDragStart={e => this.handleDragStart(e, id)}>

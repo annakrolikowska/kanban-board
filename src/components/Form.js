@@ -2,6 +2,7 @@ import React from 'react';
 import { StyledForm } from '../styles/Form.styled';
 import Button from './Button';
 import ClosedButton from './ClosedButton';
+import CustomCheckbox from './CustomCheckbox';
 import { connect } from 'react-redux';
 import { addTaskAction } from '../actions/kanban';
 import teamMembers from '../teamMembers.js';
@@ -14,12 +15,13 @@ class Form extends React.Component {
         priority: '',
         member: '',
         avatar: '',
+        theme: '',
         errors: [],
     }
 
     render() {
         const { type, onClose } = this.props;
-        const { title, description, priority, member, errors } = this.state;
+        const { title, description, priority, member, theme, errors } = this.state;
     
         const hasTitleError = errors.includes('Title is required');
         const hasDescriptionError = errors.includes('Description maximum 100 characters in length');
@@ -33,7 +35,7 @@ class Form extends React.Component {
             <label>
                 Project title
                 {hasTitleError && <span className="error-message">Title is required</span>}
-                <input name="title" type="text" onChange={this.handleFieldChange} value={title} placeholder="Enter project title" className={hasTitleError ? 'error' : ''}/>
+                <input name="title" type="text" onChange={this.handleFieldChange} value={title} placeholder="Enter project title" className={hasTitleError ? 'input error' : 'input'}/>
             </label>
             <label>
                 Member
@@ -65,6 +67,7 @@ class Form extends React.Component {
                 <option value="High">High</option>
             </select>
         </label>
+        <CustomCheckbox onChange={this.handleFieldChange} theme={theme} value={theme}/>
         <Button type="submit">Add to board</Button>
       </StyledForm>
     );
@@ -76,12 +79,13 @@ class Form extends React.Component {
         const isFormValid = this.validateForm();
       
         if (isFormValid) {
-            const { title, description, priority, member } = this.state;
+            const { title, description, priority, member, theme } = this.state;
             const selectedMember = teamMembers.find(teamMember => teamMember.name === member);
             const avatar = selectedMember.avatar;
             console.log(selectedMember.avatar)
 
-            const task = { title, description, priority, member, avatar};
+            const task = { title, description, priority, member, avatar, theme};
+            console.log(task.theme)
             task.columnId = 1;
             this.props.addTask(task);
         }
@@ -92,6 +96,16 @@ class Form extends React.Component {
             [e.target.name]: e.target.value,
         });
     }
+
+    // handleFieldChange = e => {
+    //     const { name, value } = e.target;
+    
+    //     if (name === "theme") {
+    //         this.setState({ theme: value });
+    //     } else {
+    //         this.setState({ [name]: value });
+    //     }
+    // };
 
     validateForm = () => {
         const { title, description, priority, member } = this.state;

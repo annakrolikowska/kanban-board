@@ -17,7 +17,7 @@ const StyledForm = styled.form`
         margin-bottom: 80px;
     }
 
-    & input, textarea, select {
+    & .input, textarea, select {
         width: 100%;
         min-height: 34px;
         border-radius: 16px;
