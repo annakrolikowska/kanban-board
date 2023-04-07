@@ -1,0 +1,13 @@
+import React from 'react';
+import { StyledCheckboxItem } from '../styles/CheckboxItem.styled';
+
+
+const CheckboxItem = props => {
+    const {theme, onChange} = props
+    
+    return (
+        <StyledCheckboxItem onChange={onChange} theme={theme}/>
+    );
+}
+
+export default CheckboxItem;
