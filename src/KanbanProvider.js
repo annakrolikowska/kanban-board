@@ -29,11 +29,9 @@ export const addTask=({task})=> {
 }
 
 export const removeTask = (taskId) => {
-    if (window.confirm("Are you sure to remove the task?")) {
         const tasks = loadTasks();
         const updatedTasks = tasks.filter(task => task.id !== taskId);
         saveTasksToLocalStorage(updatedTasks);
-    }
 };
 
 export const moveTask =({taskId,columnId})=> {
