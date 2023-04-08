@@ -5,14 +5,44 @@ import { connect } from 'react-redux';
 
 import Priority from './Priority';
 import ClosedButton from './ClosedButton';
+import ConfirmationDialog from './ConfirmationDialog';
 
 class Task extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isDeleteDialogOpen: false,
+            taskToDeleteId: null,
+        };
+    }
+
     handleDragStart = (event,id) => {
         event.dataTransfer.setData("taskId", id);
     }
 
+
     handleDeleteTask = (id) => {
-            this.props.deleteTask(id);
+        this.props.deleteTask(id);
+        this.setState({
+            isDeleteDialogOpen: false,
+            taskToDeleteId: null,
+        });
+    }
+
+    handleOpenDeleteDialog = (id) => {
+        this.setState({
+            isDeleteDialogOpen: true,
+            taskToDeleteId: id,
+        });
+    }
+
+    handleCloseDeleteDialog = () => {
+        this.setState({
+            isDeleteDialogOpen: false,
+            taskToDeleteId: null,
+        });
     }
 
     render() {
@@ -23,7 +53,7 @@ class Task extends Component {
                 <StyledTask priority={priority} size={size} theme={theme} onChange={onChange}>
                     <div className="task-container">
                         <Priority priority={priority} />
-                        <ClosedButton size='small' onClick={() => this.handleDeleteTask(id)}  />
+                        <ClosedButton size='small' onClick={() => this.handleOpenDeleteDialog(id)}  />
                     </div>
                     <div className="task-details">
                         <h2>{title}</h2>
@@ -34,6 +64,10 @@ class Task extends Component {
                         <h2>{member}</h2>
                     </div>
                 </StyledTask>
+                <ConfirmationDialog 
+                    message='Are you sure you want to delete this task?' 
+                    isOpen={this.state.isDeleteDialogOpen} onConfirm={() => this.handleDeleteTask(this.state.taskToDeleteId)} onCancel={this.handleCloseDeleteDialog}
+                />
             </div>
         );
     }
