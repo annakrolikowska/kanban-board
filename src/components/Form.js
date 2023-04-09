@@ -3,6 +3,7 @@ import { StyledForm } from '../styles/Form.styled';
 import Button from './Button';
 import ClosedButton from './ClosedButton';
 import CustomCheckbox from './CustomCheckbox';
+import ConfirmationDialog from './ConfirmationDialog';
 import { connect } from 'react-redux';
 import { addTaskAction } from '../actions/kanban';
 import teamMembers from '../teamMembers.js';
@@ -17,11 +18,12 @@ class Form extends React.Component {
         avatar: '',
         theme: '',
         errors: [],
+        isConfirmationOpen: false,
     }
 
     render() {
         const { type, onClose } = this.props;
-        const { title, description, priority, member, theme, errors } = this.state;
+        const { title, description, priority, member, theme, errors, isConfirmationOpen } = this.state;
     
         const hasTitleError = errors.includes('Title is required');
         const hasDescriptionError = errors.includes('Description maximum 100 characters in length');
@@ -69,6 +71,11 @@ class Form extends React.Component {
         </label>
         <CustomCheckbox onChange={this.handleFieldChange} theme={theme} value={theme}/>
         <Button type="submit">Add to board</Button>
+        {isConfirmationOpen && (
+          <ConfirmationDialog type="limit-info" onCancel={this.handleCancel} isOpen={isConfirmationOpen}
+            message={`Cannot add new task to first column. Limit of 4 tasks has been reached.`}
+          />
+        )}
       </StyledForm>
     );
   }
@@ -87,6 +94,17 @@ class Form extends React.Component {
             const task = { title, description, priority, member, avatar, theme};
             console.log(task.theme)
             task.columnId = 1;
+           
+            const tasksInColumn = this.props.tasks.filter(
+                (task) => task.columnId === 1
+              );
+          
+              if (tasksInColumn.length >= 4) {
+                this.setState({
+                    isConfirmationOpen: true,   
+                });
+                return;
+              }
             this.props.addTask(task);
         }
     }
@@ -96,16 +114,12 @@ class Form extends React.Component {
             [e.target.name]: e.target.value,
         });
     }
-
-    // handleFieldChange = e => {
-    //     const { name, value } = e.target;
     
-    //     if (name === "theme") {
-    //         this.setState({ theme: value });
-    //     } else {
-    //         this.setState({ [name]: value });
-    //     }
-    // };
+    handleCancel = () => {
+        this.setState({
+          isConfirmationOpen: false,
+        });
+      };
 
     validateForm = () => {
         const { title, description, priority, member } = this.state;
