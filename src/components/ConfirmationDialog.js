@@ -4,7 +4,7 @@ import Button from "./Button";
 
 const ConfirmationDialog = props => {
 
-    const {isOpen, onConfirm, onCancel, message } = props
+    const {isOpen, onConfirm, onCancel, message, type } = props
 
     const handleConfirm = () => {
       onConfirm();
@@ -15,7 +15,7 @@ const ConfirmationDialog = props => {
     };
   
     return isOpen ? (
-      <StyledConfirmationDialog className="confirmation-dialog">
+      <StyledConfirmationDialog type={type} >
         <h3>{message}</h3>
         <div>
             <Button onClick={handleConfirm}>Confirm</Button>

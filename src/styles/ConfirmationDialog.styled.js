@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const StyledConfirmationDialog = styled.div`
     position: fixed;
@@ -24,9 +24,20 @@ const StyledConfirmationDialog = styled.div`
         margin-bottom: 50px;
     }
 
+
     & div {
         display: flex;
         justify-content: space-around;
     }
+
+    ${ props => props.type === 'limit-info' && css`
+
+        & div {
+
+            & button:first-child {
+               display: none;
+            }
+        }
+    }`}
 `
 export { StyledConfirmationDialog };
