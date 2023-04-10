@@ -24,20 +24,31 @@ const StyledConfirmationDialog = styled.div`
         margin-bottom: 50px;
     }
 
-
     & div {
         display: flex;
         justify-content: space-around;
     }
 
     ${ props => props.type === 'limit-info' && css`
-
         & div {
-
             & button:first-child {
                display: none;
             }
         }
     }`}
+
+    @media (max-width: 735px) {
+        width: 280px;
+
+        & h3 {
+            font-size: 20px;
+            margin-bottom: 24px;
+        }
+
+        & div {
+            flex-direction: column;
+            gap: 16px;
+        }
+   }
 `
 export { StyledConfirmationDialog };

@@ -10,7 +10,6 @@ const StyledHeader= styled.header`
     & h1 {
         font-weight: 500;
         font-size: 48px;
-        line-height: 60px; 
 
         & span {
             color: #7B54CE
@@ -23,5 +22,26 @@ const StyledHeader= styled.header`
         gap: 2%;
         margin-right: 15px;
     }
+
+    @media (max-width: 1024px) {
+       flex-direction: column;
+       align-items: normal;
+       gap: 48px;
+       padding: 0 8.5%;
+   }
+
+   @media (max-width: 735px) {
+        padding: 0;
+
+        & h1 {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        & .header-container {
+            flex-direction: column;
+            gap: 20px;
+        }
+   }
 `
 export { StyledHeader};

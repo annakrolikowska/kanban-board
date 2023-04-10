@@ -48,5 +48,9 @@ const StyledButton= styled.button`
             width: 20px;       
         }
     }`}
+
+    @media (max-width: 1209px) {
+        min-width: 160px;
+    }
 `
 export { StyledButton};

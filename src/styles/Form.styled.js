@@ -10,7 +10,8 @@ const StyledForm = styled.form`
     font-size: 13px;
     position: absolute;
     top: 60px;
-    right: 15%;
+    right: 75px;
+    transform: translateX(-50%);
 
 
     & div {
@@ -26,10 +27,9 @@ const StyledForm = styled.form`
         box-sizing: border-box;
         margin: 4px 0 16px;
         font-family: 'Montserrat', sans-serif;
-  
 
         &:focus-visible {
-        outline: 1px solid #7B54CE;
+            outline: 1px solid #7B54CE;
         }
 
         & .placeholder{
@@ -60,6 +60,23 @@ const StyledForm = styled.form`
     & .error {
        border: 1px solid red;
     }
+
+    @media (max-width: 1850px) {
+        right: -60px;
+    }
+
+    @media (max-width: 1550px) {
+        right: -128px;
+    }
+
+    @media (max-width: 1309px) {
+        right: -149px;
+    }
+
+   @media (max-width: 800px) {
+        left: 50%;
+        max-width: 280px;
+   }
 `
 
 export { StyledForm };

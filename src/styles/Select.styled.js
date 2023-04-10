@@ -16,5 +16,9 @@ const StyledSelect= styled.select`
     &:focus-visible {
         outline: 1px solid #7B54CE;
     } 
+
+    @media (max-width: 1209px) {
+       min-width: 160px;
+   }
 `
 export { StyledSelect};

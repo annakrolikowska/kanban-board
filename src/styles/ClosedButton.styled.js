@@ -24,6 +24,10 @@ const StyledClosedButton= styled.button`
         & img {
             width: 20px;       
         }
+
+        @media (max-width: 800px) {
+            margin-left: 245px;
+        }
     }`}
 `
 export {StyledClosedButton};
