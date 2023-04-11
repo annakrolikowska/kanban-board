@@ -2,7 +2,7 @@ import styled, {css} from 'styled-components';
 
 const StyledPriority= styled.div`
 
-    background-color: #FFACAC;
+    background-color: var(--color-priority-high);
     padding: 5px 0 4px;
     width: 77px;
     height: 18px;
@@ -12,15 +12,15 @@ const StyledPriority= styled.div`
     font-weight: 400;
 
     ${ props => props.priority === 'High' && css`
-        background-color: #FFACAC;
+        background-color: var(--color-priority-high);
     }`}
 
     ${ props => props.priority === 'Medium' && css`
-            background-color: #FFE3AC;
+            background-color: var(--color-priority-medium);
     }`}
 
     ${ props => props.priority === 'Low' && css`
-            background-color: #BFFBD3;
+            background-color: var(--color-priority-low);
     }`}
 
     & h3 {

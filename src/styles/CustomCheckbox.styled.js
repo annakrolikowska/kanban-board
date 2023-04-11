@@ -9,7 +9,7 @@ const StyledCustomCheckbox= styled.fieldset`
         display: none; 
     
         &:checked ~ span {
-            border: 1px solid black;
+            border: 1px solid var(--color-black);
             box-sizing: border-box;
         }
     }

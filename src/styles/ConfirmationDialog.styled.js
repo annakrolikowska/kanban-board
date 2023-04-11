@@ -6,8 +6,8 @@ const StyledConfirmationDialog = styled.div`
     width: 550px;
     height: 225px;
     box-sizing:border-box;
-    background-color:WHITE;
-    color: black;  
+    background-color: var(--color-white);
+    color: var(--color-black);  
     border-radius: 20px;
     padding: 60px 24px;
     letter-spacing: -0.02em;

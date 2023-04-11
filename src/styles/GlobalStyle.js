@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
         --color-black: #000;
         --color-grey: #909090;
         --color-light-grey: #B5B5B5;
+        --color-error: red;
     
         --font-primary: 'Montserrat', sans-serif;
     }

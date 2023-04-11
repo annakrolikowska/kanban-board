@@ -6,23 +6,22 @@ const StyledCheckboxItem= styled.span`
   margin: 8px 16px 0 0;
   height: 35px;
   width: 35px;
-  background-color: #eee;
   border-radius: 50%;
     
   ${ props => props.theme === 'orange' && css`
-    background-color: #FCB36E;
+    background-color: var(--color-theme-orange);
   }`}
 
   ${ props => props.theme === 'green' && css`
-    background-color: #5CB16D;
+    background-color: var(--color-theme-green);
   }`}
 
   ${ props => props.theme === 'blue' && css`
-      background-color: #5E8AF1;
+      background-color: var(--color-theme-blue);
   }`}
 
   ${ props => props.theme === 'pink' && css`
-    background-color: #EF7DCF;
+    background-color: var(--color-theme-pink);
   }`}
 `
 export {StyledCheckboxItem};

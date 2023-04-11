@@ -5,7 +5,7 @@ const StyledForm = styled.form`
     width: 325px;
     height: 768px;
     border-radius: 20px;
-    background: #F8F7F7;
+    background: var(--color-secondary);
     padding: 45px 25px;
     font-size: 13px;
     position: absolute;
@@ -22,14 +22,14 @@ const StyledForm = styled.form`
         width: 100%;
         min-height: 34px;
         border-radius: 16px;
-        border: 1px solid #B5B5B5;
+        border: 1px solid var(--color-light-grey);
         padding: 4px 15px;
         box-sizing: border-box;
         margin: 4px 0 16px;
-        font-family: 'Montserrat', sans-serif;
+        font-family: var(--font-primary);
 
         &:focus-visible {
-            outline: 1px solid #7B54CE;
+            outline: 1px solid var(--color-accent);
         }
 
         & .placeholder{
@@ -47,18 +47,18 @@ const StyledForm = styled.form`
 
     
     & select:invalid {
-            color: red;
+            color: var(--color-error);
     }
 
     & .error-message {
-        color: red;
+        color: var(--color-error);
         font-size: 12px;
         font-weight: 500;
         margin-left: 110px;
     }
 
     & .error {
-       border: 1px solid red;
+       border: 1px solid var(--color-error);
     }
 
     @media (max-width: 1850px) {

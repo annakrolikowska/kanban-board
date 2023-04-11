@@ -4,9 +4,9 @@ const StyledSelect= styled.select`
     padding: 8px 20px;
     min-width: 195px;
     height: 36px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-primary);
     font-size: 16px;
-    background: white;
+    background: var(--color-white);
     border-radius: 16px;
     border: none;
     text-align: center;

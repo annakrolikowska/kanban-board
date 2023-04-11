@@ -12,7 +12,7 @@ const StyledHeader= styled.header`
         font-size: 48px;
 
         & span {
-            color: #7B54CE
+            color: var(--color-accent);
         }
     }
 

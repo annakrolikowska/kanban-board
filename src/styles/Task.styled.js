@@ -3,13 +3,13 @@ import styled, {css} from 'styled-components';
 const StyledTask = styled.div`
     width: 200px;
     box-sizing:border-box;
-    background-color: white;
-    color: black;
+    background-color: var(--color-white);
+    color: var(--color-black);
     border-radius: 16px;
     padding: 16px 24px;
     letter-spacing: -0.02em;
     text-align: left;
-    border-left: 2px solid orange;
+    border-left: 2px solid var(--color-theme-orange);
     display: grid;
     gap: 8px;
 
@@ -51,19 +51,19 @@ const StyledTask = styled.div`
     }
 
     ${ props => props.theme === 'orange' && css`
-     border-left: 2px solid #FCB36E;
+     border-left: 2px solid var(--color-theme-orange);
   }`}
 
   ${ props => props.theme === 'green' && css`
-     border-left: 2px solid #5CB16D;
+     border-left: 2px solid var(--color-theme-green);
   }`}
 
   ${ props => props.theme === 'blue' && css`
-       border-left: 2px solid #5E8AF1;
+       border-left: 2px solid var(--color-theme-blue);
   }`}
 
   ${ props => props.theme === 'pink' && css`
-     border-left: 2px solid #EF7DCF;
+     border-left: 2px solid var(--color-theme-pink);
   }`}
 `
 export { StyledTask };
