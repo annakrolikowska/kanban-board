@@ -5,8 +5,7 @@ import ClosedButton from './ClosedButton';
 import CustomCheckbox from './CustomCheckbox';
 import ConfirmationDialog from './ConfirmationDialog';
 import { connect } from 'react-redux';
-import { addTaskAction } from '../actions/kanban';
-import teamMembers from '../teamMembers.js';
+import { addTaskAction } from '../redux/actions/task.actions';
 
 class Form extends React.Component {
     
@@ -14,7 +13,7 @@ class Form extends React.Component {
         title: '',
         description: '',
         priority: '',
-        member: '',
+        userID: '',
         avatar: '',
         theme: '',
         errors: [],
@@ -23,7 +22,7 @@ class Form extends React.Component {
 
     render() {
         const { type, onClose } = this.props;
-        const { title, description, priority, member, theme, errors, isConfirmationOpen } = this.state;
+        const { title, description, priority, theme, errors, isConfirmationOpen } = this.state;
     
         const hasTitleError = errors.includes('Title is required');
         const hasDescriptionError = errors.includes('Description maximum 100 characters in length');
@@ -42,13 +41,13 @@ class Form extends React.Component {
             <label>
                 Member
                 {hasMemberError && <span className="error-message">Member is required</span>}
-                <select name="member" onChange={this.handleFieldChange} value={member} className={hasMemberError ? 'error' : ''}>
+                <select name="userId" onChange={this.handleFieldChange} className={hasMemberError ? 'error' : ''}>
                     <option value="">
                         Select team member
                     </option>
-                    {teamMembers.map((teamMember) => (
-                        <option key={teamMember.name} value={teamMember.name} avatar={teamMember.avatar} >
-                        {teamMember.name}
+                    {this.props.users.map((user) => (
+                        <option key={user.userId} value={user.id}>
+                            {user.name}
                         </option>
                      ))} 
                 </select>
@@ -86,14 +85,11 @@ class Form extends React.Component {
         const isFormValid = this.validateForm();
       
         if (isFormValid) {
-            const { title, description, priority, member, theme } = this.state;
-            const selectedMember = teamMembers.find(teamMember => teamMember.name === member);
-            const avatar = selectedMember.avatar;
-            console.log(selectedMember.avatar)
+            const { title, description, priority, userId, theme } = this.state;
 
-            const task = { title, description, priority, member, avatar, theme};
-            console.log(task.theme)
+            const task = { title, description, priority, theme};
             task.columnId = 1;
+            task.userId = parseInt(userId);
            
             const tasksInColumn = this.props.tasks.filter(
                 (task) => task.columnId === 1
@@ -122,20 +118,20 @@ class Form extends React.Component {
       };
 
     validateForm = () => {
-        const { title, description, priority, member } = this.state;
+        const { title, description, priority, userId } = this.state;
         const errors = [];
     
         if (title.trim() === '') {
-        errors.push('Title is required');
+            errors.push('Title is required');
         }
         if (description.trim().length > 100) {
-        errors.push('Description maximum 100 characters in length');
+            errors.push('Description maximum 100 characters in length');
         }
         if (priority.trim() === '') {
-        errors.push('Priority is required');
+            errors.push('Priority is required');
         }
-        if (member.trim() === '') {
-        errors.push('Member is required');
+        if (userId.trim() === '') {
+            errors.push('Member is required');
         }
     
         this.setState({ errors });
@@ -147,7 +143,8 @@ class Form extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        tasks: state.tasks, 
+        tasks: state.taskReducer.tasks,
+        users: state.userReducer.users
     }
   }
 
@@ -157,3 +154,4 @@ const mapStateToProps = (state) => {
 
 
   export default connect(mapStateToProps, mapDispatchToProps)(Form)
+ 

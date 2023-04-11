@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyledTask } from '../styles/Task.styled';
-import { deleteTaskAction } from '../actions/kanban';
+import { deleteTaskAction } from '../redux/actions/task.actions';
 import { connect } from 'react-redux';
 
 import Priority from './Priority';
@@ -46,7 +46,7 @@ class Task extends Component {
     }
 
     render() {
-        const { id, title, priority, member, avatar, size, theme, description, onChange} = this.props;
+        const { id, title, priority, size, theme, description, onChange, user} = this.props;
 
         return (
             <div draggable onDragStart={e => this.handleDragStart(e, id)}>
@@ -60,8 +60,8 @@ class Task extends Component {
                         <p>{description}</p>
                     </div>
                     <div className="task-member">
-                        <img src={avatar} alt="member" />
-                        <h2>{member}</h2>
+                        <img src={user.avatar} alt="member" />
+                        <h2>{user.name}</h2>
                     </div>
                 </StyledTask>
                 <ConfirmationDialog 
@@ -75,7 +75,7 @@ class Task extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        tasks: state.tasks,  
+        users: state.userReducer,  
     }
 }
 

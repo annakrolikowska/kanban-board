@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledColumn } from '../styles/Column.styled';
 import Task from './Task';
 import { connect } from 'react-redux';
-import { moveTaskAction } from '../actions/kanban';
+import { moveTaskAction } from '../redux/actions/task.actions';
 import ConfirmationDialog from './ConfirmationDialog';
 
 class Column extends React.Component {
@@ -37,7 +37,7 @@ class Column extends React.Component {
   };
 
   render() {
-    const { columnTitle, limit} = this.props;
+    const { columnTitle, limit } = this.props;
     const { isConfirmationOpen } = this.state;
 
     return (
@@ -48,9 +48,11 @@ class Column extends React.Component {
         </header>
         {this.props.tasks
           .filter((task) => task.columnId === this.props.id)
-          .map((task) => (
-            <Task id={task.id} title={task.title} description={task.description} member={task.member} avatar={task.avatar} priority={task.priority} theme={task.theme}/>
-          ))}
+          .map((task) => {
+            const user= this.props.users.find((user) => user.id === task.userId)
+
+            return (<Task id={task.id} title={task.title} description={task.description} user={user} member={task.member} avatar={task.avatar} priority={task.priority} theme={task.theme}/>
+        )})}
         {isConfirmationOpen && (
           <ConfirmationDialog type="limit-info" onCancel={this.handleCancel} isOpen={isConfirmationOpen}
             message={`Cannot move task to column ${this.props.id}. Limit of ${limit} tasks has been reached.`}
@@ -63,7 +65,8 @@ class Column extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    tasks: state.tasks,
+    tasks: state.taskReducer.tasks,
+    users: state.userReducer.users
   };
 };
 
