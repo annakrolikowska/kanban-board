@@ -52,13 +52,11 @@ class Header extends React.Component {
 
     handlePriorityChange = e => {
         e.preventDefault();
-        console.log(e.target.value)
         this.props.setPriorityFilter(e.target.value)
     }
 
     handleUserChange = e => {
         e.preventDefault();
-        console.log(e.target.value)
         if (e.target.value !== "") {
             this.props.setUserFilter(parseInt(e.target.value))
         }
