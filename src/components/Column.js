@@ -48,6 +48,12 @@ class Column extends React.Component {
         </header>
         {this.props.tasks
           .filter((task) => task.columnId === this.props.id)
+          .filter((task) => {
+            if (this.props.filters.priorityFilter !== '') {
+                return task.priority === this.props.filters.priorityFilter;
+            }
+            return true;
+        })
           .map((task) => {
             const user= this.props.users.find((user) => user.id === task.userId)
 
@@ -66,7 +72,8 @@ class Column extends React.Component {
 const mapStateToProps = (state) => {
   return {
     tasks: state.taskReducer.tasks,
-    users: state.userReducer.users
+    users: state.userReducer.users,
+    filters: state.filterReducer.filters
   };
 };
 

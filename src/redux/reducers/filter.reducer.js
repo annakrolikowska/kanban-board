@@ -1,11 +1,11 @@
-import filters from "../initStateFiles/filters";
+import filters from "../initState/filters";
 
 const initialState = {
     filters: filters,
 };
 
 const filterReducer = (state = initialState, action) => {
-console.log(action)
+
     switch (action.type) {
 
         case 'setPriority':

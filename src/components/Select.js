@@ -4,8 +4,10 @@ import { StyledSelect } from '../styles/Select.styled';
 
 const Select = props => {
     
+    const {onChange} = props
+    
     return (
-        <StyledSelect>
+        <StyledSelect onChange={onChange}>
             {props.children}
         </StyledSelect>
     );

@@ -1,22 +1,26 @@
 
 import React from 'react';
 import { StyledHeader } from '../styles/Header.styled';
+import { connect } from 'react-redux'
 import Button from './Button';
 import Select from './Select';
 import Form from './Form';
+import {setPriorityFilterAction} from "../redux/actions/filter.actions"
 
 class Header extends React.Component { 
     state = {
         isFormVisible: false,
+        filterValue: '',
     }
 
     render() {
+
         const { isFormVisible } = this.state;
         return (
             <StyledHeader>
                 <h1>Kanban <span>Board</span></h1>
                 <div className="header-container">
-                    <Select>   
+                    <Select >   
                         <option value="" > Member</option>
                         <option value="Ksenia Storm">Ksenia Storm</option>
                         <option value="Pawel Waters">Pablo Waters</option>
@@ -25,7 +29,7 @@ class Header extends React.Component {
                         <option value="John Snow">John Snow</option>
                         <option value="Justine Rivers">Justine Rivers</option>
                     </Select>
-                    <Select>
+                    <Select onChange={this.handlePriorityChange}>
                         <option value="">Priority</option>
                         <option value="Low">Low</option>
                         <option value="Medium">Medium</option>
@@ -45,6 +49,24 @@ class Header extends React.Component {
             isFormVisible: !prevState.isFormVisible,
         }));
     }
+
+    handlePriorityChange = e => {
+        e.preventDefault();
+        console.log(e.target.value)
+        this.props.setPriorityFilter(e.target.value)
+
+    }
 }
 
-export default Header;
+
+const mapStateToProps = (state) => {
+  
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    setPriorityFilter: (priority) =>
+        dispatch(setPriorityFilterAction(priority)),
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
