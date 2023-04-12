@@ -60,7 +60,7 @@ class Header extends React.Component {
         e.preventDefault();
         console.log(e.target.value)
         if (e.target.value !== "") {
-            this.props.setUserFilter.parseInt(e.target.value)
+            this.props.setUserFilter(parseInt(e.target.value))
         }
     }
 }
