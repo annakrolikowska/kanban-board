@@ -14,7 +14,7 @@ class Form extends React.Component {
         title: '',
         description: '',
         priority: '',
-        userID: '',
+        userId: '',
         avatar: '',
         theme: '',
         errors: [],
@@ -23,7 +23,7 @@ class Form extends React.Component {
 
     render() {
         const { type, onClose } = this.props;
-        const { title, description, priority, theme, errors, isConfirmationOpen } = this.state;
+        const { title, description, priority, userId, theme, errors, isConfirmationOpen } = this.state;
     
         const hasTitleError = errors.includes('Title is required');
         const hasDescriptionError = errors.includes('Description maximum 100 characters in length');
@@ -42,7 +42,7 @@ class Form extends React.Component {
                     <label>
                         Member
                         {hasMemberError && <span className="error-message">Member is required</span>}
-                        <select name="userId" onChange={this.handleFieldChange} type="form" className={hasMemberError ? 'error' : ''}>
+                        <select name="userId" onChange={this.handleFieldChange} value={userId} type="form" className={hasMemberError ? 'error' : ''}>
                             <option value="">
                                 Select team member
                             </option>
@@ -103,6 +103,7 @@ class Form extends React.Component {
                 return;
               }
             this.props.addTask(task);
+            this.resetForm()
         }
     }
 
@@ -137,6 +138,17 @@ class Form extends React.Component {
     
         this.setState({ errors });
         return errors.length === 0;
+    };
+
+    resetForm = () => {
+        this.setState({
+            title: '',
+            description: '',
+            priority: '',
+            userId: '',
+            avatar: '',
+            theme: ''
+        });
     };
 }
 
