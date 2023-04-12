@@ -9,10 +9,18 @@ const filterReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case 'setPriority':
-            const newFilters = {...state.filters};
-            newFilters.priorityFilter = action.payload.priority;
+            const newPriorityFilters = {...state.filters};
+            newPriorityFilters.priorityFilter = action.payload.priority;
+            console.log(newPriorityFilters)
             return {
-                filters: newFilters
+                filters: newPriorityFilters
+            }
+        case 'setUser':
+            const newUserFilters = {...state.filters};
+            newUserFilters.userFilter = action.payload.user;
+            console.log(newUserFilters)
+            return {
+                filters: newUserFilters
             }
         default:
             return state;
