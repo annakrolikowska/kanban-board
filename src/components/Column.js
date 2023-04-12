@@ -49,7 +49,15 @@ class Column extends React.Component {
         {this.props.tasks
           .filter((task) => task.columnId === this.props.id)
           .filter((task) => {
+            if (this.props.filters.userFilter !== '') { 
+              console.log(this.props.filters.userFilter)
+              return task.userId === this.props.filters.userFilter; 
+            }
+            return true;
+          })
+          .filter((task) => {
             if (this.props.filters.priorityFilter !== '') {
+
                 return task.priority === this.props.filters.priorityFilter;
             }
             return true;
@@ -73,7 +81,7 @@ const mapStateToProps = (state) => {
   return {
     tasks: state.taskReducer.tasks,
     users: state.userReducer.users,
-    filters: state.filterReducer.filters
+    filters: state.filterReducer.filters,
   };
 };
 
