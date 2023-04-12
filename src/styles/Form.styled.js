@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledForm = styled.form`
 
     width: 325px;
-    height: 768px;
+    height: 635px;
     border-radius: 20px;
     background: var(--color-secondary);
     padding: 45px 25px;
@@ -13,14 +13,13 @@ const StyledForm = styled.form`
     right: 75px;
     transform: translateX(-50%);
 
-
     & div {
-        margin-bottom: 80px;
+        margin-bottom: 48px;
     }
 
     & .input, textarea, select {
         width: 100%;
-        min-height: 34px;
+        min-height: 36px;
         border-radius: 16px;
         border: 1px solid var(--color-light-grey);
         padding: 4px 15px;
@@ -28,12 +27,12 @@ const StyledForm = styled.form`
         margin: 4px 0 16px;
         font-family: var(--font-primary);
 
-        &:focus-visible {
-            outline: 1px solid var(--color-accent);
+        &::placeholder {
+            color: var(--color-black);
         }
 
-        & .placeholder{
-            display: none;
+        &:focus-visible {
+            outline: 1px solid var(--color-accent);
         }
     }
 
@@ -44,7 +43,6 @@ const StyledForm = styled.form`
     & label {
         font-weight: 500;
     }
-
     
     & select:invalid {
             color: var(--color-error);

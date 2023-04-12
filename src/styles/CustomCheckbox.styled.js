@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledCustomCheckbox= styled.fieldset`
 
     border: none;
-    margin-top: 35px;
+    margin-top: 16px;
 
     & input {
         display: none; 

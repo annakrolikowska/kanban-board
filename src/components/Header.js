@@ -23,12 +23,6 @@ class Header extends React.Component {
                 <div className="header-container">
                     <Select value={userFilter} onChange={this.handleUserChange}>   
                         <option value="" > Member</option>
-                        {/* <option value="Ksenia Storm">Ksenia Storm</option>
-                        <option value="Pawel Waters">Pawel Waters</option>
-                        <option value="Annie Bunny">Annie Bunny</option>
-                        <option value="Ewa Flowers">Ewa Flowers</option>
-                        <option value="John Snow">John Snow</option>
-                        <option value="Justine Rivers">Justine Rivers</option> */}
                         {this.props.users.map((user) => (
                         <option key={user.id} value={user.id}>
                             {user.name}
@@ -41,7 +35,7 @@ class Header extends React.Component {
                         <option value="Medium">Medium</option>
                         <option value="High">High</option>
                     </Select>
-                    <Button onClick={this.toggleFormVisibility}>
+                    <Button type="openForm" onClick={this.toggleFormVisibility}>
                       {isFormVisible ? 'Close form' : '+ Add task'}
                     </Button>
                 </div>
@@ -70,7 +64,6 @@ class Header extends React.Component {
         }
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {

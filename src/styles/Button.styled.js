@@ -30,7 +30,7 @@ const StyledButton= styled.button`
         min-width: 100%;
         height: 36px;
         font-weight: 400;
-        margin-top: 120px;
+        margin-top: 48px;
     }`}
 
     ${ props => props.type === 'close' && css`
@@ -49,7 +49,9 @@ const StyledButton= styled.button`
     }`}
 
     @media (max-width: 1209px) {
-        min-width: 160px;
-    }
+        ${ props => props.type === 'openForm' && css`
+          min-width: 160px;
+        }
+    `}}
 `
 export { StyledButton};
