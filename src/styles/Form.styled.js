@@ -71,9 +71,14 @@ const StyledForm = styled.form`
         right: -149px;
     }
 
+    @media (max-width: 1209px) {
+       top: 40px;
+   }
+
    @media (max-width: 800px) {
         left: 50%;
         max-width: 280px;
+        top: 0;
    }
 `
 
