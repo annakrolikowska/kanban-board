@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyledTask } from '../styles/Task.styled';
-import { deleteTaskAction } from '../redux/actions/task.actions';
+import { StyledTask } from '../../styles/ColumnContainer/Task.styled';
+import { deleteTaskAction } from '../../redux/actions/task.actions';
 import { connect } from 'react-redux';
 
 import Priority from './Priority';

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyledPriority } from '../styles/Priority.styled';
+import { StyledPriority } from '../../styles/ColumnContainer/Priority.styled';
 
 const Priority = props => {
     const {priority} = props;

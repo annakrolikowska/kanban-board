@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledHeader } from '../../styles/Header.styled';
+import { StyledHeader } from '../../styles/Header/Header.styled';
 import { connect } from 'react-redux'
 import Button from './Button';
 import Select from './Select';

@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyledColumn } from '../styles/Column.styled';
+import { StyledColumn } from '../../styles/ColumnContainer/Column.styled';
 import Task from './Task';
 import { connect } from 'react-redux';
-import { moveTaskAction } from '../redux/actions/task.actions';
+import { moveTaskAction } from '../../redux/actions/task.actions'; 
 import ConfirmationDialog from './ConfirmationDialog';
 
 class Column extends React.Component {

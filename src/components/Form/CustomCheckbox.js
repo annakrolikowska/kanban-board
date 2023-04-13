@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyledCustomCheckbox } from '../styles/CustomCheckbox.styled';
+import { StyledCustomCheckbox } from '../../styles/Form/CustomCheckbox.styled';
 import CheckboxItem from './CheckboxItem';
 
 const CustomCheckbox = (props) => {

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyledSelect } from '../styles/Select.styled';
+import { StyledSelect } from '../../styles/Header/Select.styled';
 
 const Select = props => {
     

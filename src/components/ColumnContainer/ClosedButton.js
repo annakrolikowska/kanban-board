@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledClosedButton } from '../../styles/ClosedButton.styled';
+import { StyledClosedButton } from '../../styles/ColumnContainer/ClosedButton.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 

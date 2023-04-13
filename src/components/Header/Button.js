@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledButton } from '../styles/Button.styled';
+import { StyledButton } from '../../styles/Header/Button.styled';
 
 
 const Button = props => {

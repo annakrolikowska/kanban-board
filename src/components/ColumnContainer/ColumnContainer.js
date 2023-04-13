@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyledColumnContainer } from '../styles/ColumContainer.styled';
+import { StyledColumnContainer } from '../../styles/ColumnContainer/ColumContainer.styled';
 import Column from './Column';
 
 const ColumnContainer = props => {

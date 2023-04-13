@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledConfirmationDialog } from "../styles/ConfirmationDialog.styled";
-import Button from "./Button";
+import { StyledConfirmationDialog } from "../../styles/ColumnContainer/ConfirmationDialog.styled";
+import Button from "../Header/Button";
 
 const ConfirmationDialog = props => {
 
