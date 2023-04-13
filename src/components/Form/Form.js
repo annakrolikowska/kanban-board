@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledForm } from '../styles/Form.styled';
-import Button from './Button';
-import ClosedButton from './ClosedButton';
+import { StyledForm } from '../../styles/Form.styled';
+import Button from '../Button';
+import ClosedButton from '../ColumnContainer/ClosedButton';
 import CustomCheckbox from './CustomCheckbox';
-import ConfirmationDialog from './ConfirmationDialog';
+import ConfirmationDialog from '../ConfirmationDialog';
 import { connect } from 'react-redux';
-import { addTaskAction } from '../redux/actions/task.actions';
+import { addTaskAction } from '../../redux/actions/task.actions';
 
 
 class Form extends React.Component {

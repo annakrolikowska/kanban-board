@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { StyledKanban } from '../styles/Kanban.styled';
-import Header from './Header';
+import Header from './Header/Header';
 import ColumnContainer from './ColumnContainer';
 
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledHeader } from '../styles/Header.styled';
+import { StyledHeader } from '../../styles/Header.styled';
 import { connect } from 'react-redux'
 import Button from './Button';
 import Select from './Select';
-import Form from './Form';
-import {setPriorityFilterAction} from "../redux/actions/filter.actions"
-import {setUserFilterAction} from "../redux/actions/filter.actions"
+import Form from '../Form/Form';
+import {setPriorityFilterAction} from "../../redux/actions/filter.actions"
+import {setUserFilterAction} from "../../redux/actions/filter.actions"
 
 class Header extends React.Component { 
     state = {
