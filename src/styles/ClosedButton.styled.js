@@ -4,25 +4,25 @@ const StyledClosedButton= styled.button`
     border: none;
     cursor: pointer;
     background: none;
-    opacity: 60%;
+    color: var(--color-light-grey);
 
     &:hover {
-        opacity: 100%;
+        color: var(--color-black);
     }
 
     ${ props => props.size === 'small' && css`
         margin-left: 58px;
 
-        & img {
-            width: 12px;       
+        & .icon {
+            height: 15px; 
         }
     }`}
 
     ${ props => props.size === 'large' && css`
         margin-left: 285px;
 
-        & img {
-            width: 20px;       
+        & .icon{
+            height: 30px;     
         }
 
         @media (max-width: 800px) {

@@ -28,24 +28,9 @@ const StyledButton= styled.button`
 
     ${ props => props.type === 'submit' && css`
         min-width: 100%;
-        height: 36px;
+        height: 40px;
         font-weight: 400;
         margin-top: 48px;
-    }`}
-
-    ${ props => props.type === 'close' && css`
-        background: none;
-        min-width: 10px;
-        margin-left: 280px;
-
-        &:hover {
-            background: none;
-        }
-
-        & img {
-            background: none;
-            width: 20px;       
-        }
     }`}
 
     @media (max-width: 1209px) {
