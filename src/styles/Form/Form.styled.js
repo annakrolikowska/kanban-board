@@ -10,6 +10,7 @@ const StyledForm = styled.form`
     position: absolute;
     top: 0;
     right: 0;
+    animation: slideInFromRight 0.5s ease-in-out;
 
     & div {
         margin-bottom: 48px;
@@ -63,6 +64,15 @@ const StyledForm = styled.form`
         max-width: 280px;
         top: 0;
    } 
+
+    @keyframes slideInFromRight {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
 `
 
 export { StyledForm };
