@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-
     width: 325px;
     height: 635px;
     border-radius: 20px;
@@ -9,9 +8,8 @@ const StyledForm = styled.form`
     padding: 45px 25px;
     font-size: 13px;
     position: absolute;
-    top: 60px;
-    right: 75px;
-    transform: translateX(-50%);
+    top: 0;
+    right: 0;
 
     & div {
         margin-bottom: 48px;
@@ -59,27 +57,12 @@ const StyledForm = styled.form`
        border: 1px solid var(--color-error);
     }
 
-    @media (max-width: 1850px) {
-        right: -60px;
-    }
-
-    @media (max-width: 1550px) {
-        right: -128px;
-    }
-
-    @media (max-width: 1309px) {
-        right: -149px;
-    }
-
-    @media (max-width: 1209px) {
-       top: 40px;
-   }
-
    @media (max-width: 800px) {
+        transform: translateX(-50%);
         left: 50%;
         max-width: 280px;
         top: 0;
-   }
+   } 
 `
 
 export { StyledForm };
