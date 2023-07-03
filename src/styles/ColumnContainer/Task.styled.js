@@ -12,6 +12,12 @@ const StyledTask = styled.div`
     border-left: 2px solid var(--color-theme-orange);
     display: grid;
     gap: 8px;
+    transition: 0.2s;
+
+    &:hover {
+        box-shadow:  6px 6px 10px var(--color-light-grey),
+             -4px -4px 10px var(--color-secondary);
+    }
 
     & h2 {
         font-size: 12px;
