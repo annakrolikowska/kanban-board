@@ -1,16 +1,10 @@
+import React from "react";
+import { StyledSelect } from "../../styles/Header/Select.styled";
 
-import React from 'react';
-import { StyledSelect } from '../../styles/Header/Select.styled';
-
-const Select = props => {
-    
-    const {onChange} = props
-    
-    return (
-        <StyledSelect onChange={onChange}>
-            {props.children}
-        </StyledSelect>
-    );
-}
+const Select = ({ onChange, ...restProps }) => (
+  <StyledSelect onChange={onChange} {...restProps}>
+    {restProps.children}
+  </StyledSelect>
+);
 
 export default Select;

@@ -1,7 +1,6 @@
-const filters = 
-    {
-        priorityFilter: '',
-        userFilter: ''
-    }
-  
+const filters = {
+  priorityFilter: "",
+  userFilter: "",
+};
+
 export default filters;

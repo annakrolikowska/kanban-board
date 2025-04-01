@@ -1,28 +1,28 @@
 import filters from "../initState/filters";
 
 const initialState = {
-    filters: filters,
+  filters: filters,
 };
 
 const filterReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "setPriority":
+      return {
+        filters: {
+          ...state.filters,
+          priorityFilter: action.payload.priority,
+        },
+      };
+    case "setUser":
+      return {
+        filters: {
+          ...state.filters,
+          userFilter: action.payload.user,
+        },
+      };
+    default:
+      return state;
+  }
+};
 
-    switch (action.type) {
-
-        case 'setPriority':
-            const newPriorityFilters = {...state.filters};
-            newPriorityFilters.priorityFilter = action.payload.priority;
-            return {
-                filters: newPriorityFilters
-            }
-        case 'setUser':
-            const newUserFilters = {...state.filters};
-            newUserFilters.userFilter = action.payload.user;
-            return {
-                filters: newUserFilters
-            }
-        default:
-            return state;
-    }
-}
-
-export default filterReducer
+export default filterReducer;

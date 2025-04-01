@@ -1,13 +1,8 @@
-import React from 'react';
-import { StyledCheckboxItem } from '../../styles/Form/CheckboxItem.styled';
+import React from "react";
+import { StyledCheckboxItem } from "../../styles/Form/CheckboxItem.styled";
 
-
-const CheckboxItem = props => {
-    const {theme, onChange} = props
-    
-    return (
-        <StyledCheckboxItem onChange={onChange} theme={theme}/>
-    );
-}
+const CheckboxItem = ({ theme, onChange }) => {
+  return <StyledCheckboxItem theme={theme} onChange={onChange} />;
+};
 
 export default CheckboxItem;

@@ -1,17 +1,16 @@
-import React from 'react';
-import { StyledClosedButton } from '../../styles/ColumnContainer/ClosedButton.styled';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import React from "react";
+import { StyledClosedButton } from "../../styles/ColumnContainer/ClosedButton.styled";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
+const ClosedButton = (props) => {
+  const { onClick, size } = props;
 
-const ClosedButton = props => {
-    const {onClick, size} = props
-    
-    return (
-        <StyledClosedButton size={size} onClick={onClick}>
-              <FontAwesomeIcon className='icon' icon={faXmark} />
-        </StyledClosedButton>
-    );
-}
+  return (
+    <StyledClosedButton size={size} onClick={onClick}>
+      <FontAwesomeIcon className="icon" icon={faXmark} />
+    </StyledClosedButton>
+  );
+};
 
 export default ClosedButton;

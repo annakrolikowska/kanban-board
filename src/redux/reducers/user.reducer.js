@@ -1,20 +1,27 @@
-import {loadUsers,initializeUsers} from '../api/UserApi'
-
+import { loadUsers, initializeUsers } from "../api/UserApi";
 
 const initialState = {
-    users: initializeUsers(),
+  users: initializeUsers(),
 };
 
 const userReducer = (state = initialState, action) => {
-
-    switch (action.type) {
-        case 'loadUsers':
-            return {
-                users: loadUsers()
-            }
-        default:
-            return state;
+  const getUsers = () => {
+    try {
+      return loadUsers();
+    } catch (error) {
+      console.error("Error loading users:", error);
+      return state.users;
     }
-}
+  };
 
-export default userReducer
+  switch (action.type) {
+    case "loadUsers":
+      return {
+        users: getUsers(),
+      };
+    default:
+      return state;
+  }
+};
+
+export default userReducer;
