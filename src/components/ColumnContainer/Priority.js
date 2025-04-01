@@ -1,14 +1,12 @@
+import React from "react";
+import { StyledPriority } from "../../styles/ColumnContainer/Priority.styled";
 
-import React from 'react';
-import { StyledPriority } from '../../styles/ColumnContainer/Priority.styled';
-
-const Priority = props => {
-    const {priority} = props;
-    return (
-        <StyledPriority priority={priority}>
-          <h3>{priority} priority</h3>
-        </StyledPriority>
-    );
-}
+const Priority = ({ priority }) => {
+  return (
+    <StyledPriority priority={priority}>
+      <h3>{priority}</h3>
+    </StyledPriority>
+  );
+};
 
 export default Priority;

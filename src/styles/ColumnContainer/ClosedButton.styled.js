@@ -1,16 +1,18 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from "styled-components";
 
-const StyledClosedButton= styled.button`
-    border: none;
-    cursor: pointer;
-    background: none;
-    color: var(--color-light-grey);
+const StyledClosedButton = styled.button`
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: var(--color-light-grey);
 
-    &:hover {
-        color: var(--color-black);
-    }
+  &:hover {
+    color: var(--color-black);
+  }
 
-    ${ props => props.size === 'small' && css`
+  ${(props) =>
+    props.size === "small" &&
+    css`
         margin-left: 58px;
 
         & .icon {
@@ -18,7 +20,9 @@ const StyledClosedButton= styled.button`
         }
     }`}
 
-    ${ props => props.size === 'large' && css`
+  ${(props) =>
+    props.size === "large" &&
+    css`
         margin-left: 285px;
 
         & .icon{
@@ -29,5 +33,5 @@ const StyledClosedButton= styled.button`
             margin-left: 245px;
         }
     }`}
-`
-export {StyledClosedButton};
+`;
+export { StyledClosedButton };

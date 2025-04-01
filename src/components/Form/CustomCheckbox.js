@@ -1,35 +1,34 @@
+import React from "react";
+import { StyledCustomCheckbox } from "../../styles/Form/CustomCheckbox.styled";
+import CheckboxItem from "./CheckboxItem";
 
-import React from 'react';
-import { StyledCustomCheckbox } from '../../styles/Form/CustomCheckbox.styled';
-import CheckboxItem from './CheckboxItem';
+const THEME_OPTIONS = [
+  { id: "orange", value: "orange" },
+  { id: "green", value: "green" },
+  { id: "blue", value: "blue" },
+  { id: "pink", value: "pink" },
+];
 
-const CustomCheckbox = (props) => {
-
-    const {onChange} = props
-
-    return (
-        <StyledCustomCheckbox>
-            <legend>Color theme</legend>
-            <div >
-                <label>
-                    <input  id="orange" type="radio" name="theme" value='orange' onChange={onChange}/>
-                      <CheckboxItem theme="orange"/>
-                </label>
-                <label>
-                    <input  id="green" type="radio" name="theme" value='green' onChange={onChange}/>
-                    <CheckboxItem theme="green"/>
-                </label>
-                <label>
-                    <input  id="blue" type="radio" name="theme" value='blue' onChange={onChange}/>
-                    <CheckboxItem theme="blue"/>
-                </label>
-                <label>
-                    <input  id="pink" type="radio" name="theme" value='pink' onChange={onChange}/>
-                    <CheckboxItem theme="pink"/>
-                </label>
-          </div>
-        </StyledCustomCheckbox>
-    );
-}
+const CustomCheckbox = ({ onChange }) => {
+  return (
+    <StyledCustomCheckbox>
+      <legend>Color theme</legend>
+      <div>
+        {THEME_OPTIONS.map(({ id, value }) => (
+          <label key={id}>
+            <input
+              id={id}
+              type="radio"
+              name="theme"
+              value={value}
+              onChange={onChange}
+            />
+            <CheckboxItem theme={value} />
+          </label>
+        ))}
+      </div>
+    </StyledCustomCheckbox>
+  );
+};
 
 export default CustomCheckbox;
