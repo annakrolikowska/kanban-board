@@ -5,7 +5,7 @@ const StyledHeader = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 48px;
+  margin-bottom: 20px;
 
   & h1 {
     font-weight: 500;
